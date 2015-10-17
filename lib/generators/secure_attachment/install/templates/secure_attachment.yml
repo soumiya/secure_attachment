@@ -1,0 +1,26 @@
+#The filepaths are configurable. It does not have to be in config/ciphers.
+#Use samplekeys generator to create new {kek, edek} pairs
+
+defaults: &defaults
+  default_cipher: version_1
+  ciphers:
+    version_1:
+      kek_filename: "config/ciphers/kek_version_1.dat"
+      edek_filename: "config/ciphers/edek_version_1.dat"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+# This is the default that is going to be used if not defined
+default:
+  default_cipher: version_2
+  ciphers:
+    version_1:
+      kek_filename: "config/ciphers/kek_version_1.dat"
+      edek_filename: "config/ciphers/edek_version_1.dat"
+    version_2:
+      kek_filename: "config/ciphers/kek_version_2.dat"
+      edek_filename: "config/ciphers/edek_version_2.dat"
